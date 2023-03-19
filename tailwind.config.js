@@ -4,7 +4,12 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        logo: ['Satisfy', 'cursive'],
+        theme: ['Roboto', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }

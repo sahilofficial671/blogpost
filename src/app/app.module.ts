@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './modules/auth/auth.module';
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider, GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
+import { BlogModule } from './modules/blog/blog.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -12,10 +15,12 @@ import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider, Google
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    AuthModule,
     SocialLoginModule,
-    GoogleSigninButtonModule
+    GoogleSigninButtonModule,
+    AuthModule,
+    BlogModule
   ],
   providers: [
     {
@@ -25,7 +30,9 @@ import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider, Google
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider('440338254018-ao3n7999n7cp00v9061p797i7pql89ia.apps.googleusercontent.com'),
+            provider: new GoogleLoginProvider('440338254018-ao3n7999n7cp00v9061p797i7pql89ia.apps.googleusercontent.com', {
+              oneTapEnabled: false,
+            }),
           },
         ],
         onError: (err) => {
@@ -33,6 +40,7 @@ import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider, Google
         }
       } as SocialAuthServiceConfig,
     },
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })
