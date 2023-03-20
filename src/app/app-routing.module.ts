@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
 import { GuestGuard } from './core/guards/guest.guard';
 import { LoginComponent } from './modules/auth/login/login.component';
+import { BlogHomeComponent } from './modules/blog/blog-home/blog-home.component';
 import { ProfileComponent } from './modules/blog/profile/profile.component';
 
 const routes: Routes = [
@@ -10,7 +11,8 @@ const routes: Routes = [
   {path: 'login', canActivate: [GuestGuard], component: LoginComponent},
 
   // Authenticated Routes
-  {path: 'profile', canActivate: [AuthGuard], component: ProfileComponent,},
+  {path: '', canActivate: [AuthGuard], component: BlogHomeComponent},
+  {path: 'profile', canActivate: [AuthGuard], component: ProfileComponent},
 ];
 
 @NgModule({

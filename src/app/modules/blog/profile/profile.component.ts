@@ -19,7 +19,6 @@ export class ProfileComponent {
   };
 
   ngOnInit(){
-    // Get User
     this.apiService
       .get('/auth/profile')
       .subscribe((response) => {

@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
+import { BlogService } from './blog.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor() { }
+  constructor(
+    private blogService: BlogService
+  ) { }
 
   mapToUser(params:any): User|null{
 
@@ -25,12 +28,24 @@ export class UserService {
       user._id = data._id;
       user.name = data.name;
       user.email = data.email;
+      user.createdAt = data.createdAt;
+      user.updatedAt = data.updatedAt;
 
       const name = data.name.split(" ");
       user.firstName = name[0];
 
       if(name[1]){
         user.lastName = name[1];
+      }
+
+      user.blogs = [];
+
+      if(data['blogs'] && Array(data['blogs']).length > 0){
+        for (let i = 0; i < data['blogs'].length; i++) {
+          const blog = data['blogs'][i];
+
+          user.blogs.push(this.blogService.mapToBlog(blog));
+        }
       }
 
       return user;
