@@ -4,14 +4,15 @@ import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { BlogHomeComponent } from './blog-home/blog-home.component';
-
+import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     ProfileComponent,
-    BlogHomeComponent
+    BlogHomeComponent,
+    BlogDetailComponent,
   ],
   imports: [
     CommonModule,

@@ -31,6 +31,8 @@ export class BlogService {
 
       if(data.user){
         blog.user = new User();
+        blog.user.name = data.user.name;
+        blog.user.email = data.user.email;
         blog.user.firstName = (data.user.name && data.user.name.split(' ')[0]) || null;
       }
 
