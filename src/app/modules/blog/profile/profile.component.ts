@@ -27,4 +27,14 @@ export class ProfileComponent {
         }
       });
   }
+
+  deleteBlog(blogId: any): void{
+    this.userService
+      .deleteBlog(blogId)
+      .subscribe((response) => {
+        if(response?.status == 'success' && this.user){
+          this.user.blogs = this.user?.blogs?.filter((blog) => blog.getId() != blogId);
+        }
+      })
+  }
 }

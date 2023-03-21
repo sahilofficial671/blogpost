@@ -44,22 +44,19 @@ export class BlogCreateComponent {
         description: this.form.get('description')?.value,
       };
 
-      console.log(blog);
-
       this.blogService.createBlog(blog)
-      .subscribe((response) => {
-        console.log(response);
-        this.router.navigate(['/blogs'], {
-          queryParams: {
-            blogCreated: true
-          }
+        .subscribe((response) => {
+          this.router.navigate(['/blogs'], {
+            queryParams: {
+              blogCreated: true
+            }
+          });
+        }, err => {
+          this.form.enable()
+          console.log(err);
+          this.error = err.message;
+          this.isSubmitted = false;
         });
-      }, err => {
-        this.form.enable()
-        console.log(err);
-        this.error = err.message;
-        this.isSubmitted = false;
-      })
     }
   }
 }

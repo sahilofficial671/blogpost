@@ -58,4 +58,8 @@ export class BlogService {
     return this.apiService
       .post('/blog', blog);
   }
+
+  deleteBlog(blog: any){
+    return this.apiService.delete('/blog/' + blog)
+  }
 }

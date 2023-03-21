@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
 import { BlogService } from './blog.service';
 
@@ -52,5 +53,9 @@ export class UserService {
     }
 
     return null;
+  }
+
+  deleteBlog(blogId: any): Observable<any>{
+    return this.blogService.deleteBlog(blogId);
   }
 }
