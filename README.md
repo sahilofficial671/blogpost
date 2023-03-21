@@ -1,6 +1,14 @@
-# Demo
+# Blogpost
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+This is a blogpost project - You can view, create & manage your blogs.
+
+## Build with
+- Angular v15
+- Google Login
+- AlpineJS
+- TailwindCSS v3
+
+You can login with google and then "Create Blogs" from your profile view.
 
 ## Development server
 
