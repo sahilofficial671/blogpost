@@ -64,6 +64,10 @@ export class AuthService {
     }
   }
 
+  validateSession(): void{
+    this.apiService.get('/auth/validate').subscribe()
+  }
+
   logout(): Boolean{
     localStorage.setItem(this.userKey, "");
     localStorage.setItem(this.tokenKey, "");

@@ -27,6 +27,9 @@ export class AuthGuard implements CanActivate {
         return false;
       }
 
+      // If token exist then force validate session with the server
+      this.authService.validateSession();
+
       return true;
   }
 }
