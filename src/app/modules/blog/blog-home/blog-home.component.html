@@ -16,7 +16,7 @@
     </ng-container>
   </div>
   <div class="blogs" *ngFor="let blog of blogs">
-    <a class="border rounded shadow-sm bg-white mb-5 block" [routerLink]="'/blogs/' + blog.getId()">
+    <a class="border rounded shadow-sm bg-white mb-5 block group" [routerLink]="'/blogs/' + blog.getId()">
       <div class="flex py-3 px-5">
         <div>
           <div class="avatar bg-gray-200 rounded-full p-5 mr-5 flex justify-between items-center">
@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="details">
-          <div class="text-gray-700 pb-3">{{blog.title}}</div>
+          <div class="text-gray-700 pb-3 group-hover:font-medium transition-all">{{blog.title}}</div>
           <div class="text-gray-600 text-sm mb-10">{{blog.description | slice:0:100 }}</div>
           <div class="flex justify-between items-center">
             <div class="text-gray-500 text-sm">
@@ -39,5 +39,6 @@
       </div>
     </a>
   </div>
+  <div class="text-sm text-gray-500 text-center" *ngIf="!blogs[0]">No blogs yet. You can create first blog after logging in.</div>
 </div>
 

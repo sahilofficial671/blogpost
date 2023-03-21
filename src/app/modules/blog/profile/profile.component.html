@@ -33,9 +33,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b" *ngFor="let blog of user?.blogs">
-                <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                  <a [routerLink]="'/blogs/' + blog.getId()" class="hover:text-gray-600">
+            <tr class="bg-white border-b group" *ngFor="let blog of user?.blogs">
+                <th scope="row" class="px-6 py-4 font-medium whitespace-wrap w-60">
+                  <a [routerLink]="'/blogs/' + blog.getId()" class="group-hover:text-gray-600 group-hover:font-medium">
                     {{blog?.title}}
                   </a>
                 </th>
@@ -54,3 +54,4 @@
     </table>
   </div>
 </div>
+<div *ngIf="(user?.blogs && !user?.blogs?.[0])" class="text-sm text-gray-500 my-2 text-center">No blogs yet</div>
