@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Blog } from '../models/blog.model';
 import { User } from '../models/user.model';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,7 @@ import { User } from '../models/user.model';
 export class BlogService {
 
   constructor(
+    private apiService: ApiService
   ) { }
 
   mapToBlog(params: any): Blog | any{
@@ -50,5 +52,10 @@ export class BlogService {
     }
 
     return blogs;
+  }
+
+  createBlog(blog: any){
+    return this.apiService
+      .post('/blog', blog);
   }
 }

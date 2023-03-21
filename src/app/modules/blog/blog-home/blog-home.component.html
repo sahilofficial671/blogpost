@@ -1,4 +1,20 @@
 <div class="blogs">
+  <div class="alert" *ngIf="toast" class="mb-4">
+    <ng-container *ngIf="toast.status == 'success'">
+      <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+        <div class="flex items-center space-x-2">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-teal-600">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <p class="font-medium">{{ toast?.message }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
   <div class="blogs" *ngFor="let blog of blogs">
     <a class="border rounded shadow-sm bg-white mb-5 block" [routerLink]="'/blogs/' + blog.getId()">
       <div class="flex py-3 px-5">
@@ -11,7 +27,7 @@
         </div>
         <div class="details">
           <div class="text-gray-700 pb-3">{{blog.title}}</div>
-          <div class="text-gray-600 text-sm mb-10">{{blog.description | slice:10:100 }}</div>
+          <div class="text-gray-600 text-sm mb-10">{{blog.description | slice:0:100 }}</div>
           <div class="flex justify-between items-center">
             <div class="text-gray-500 text-sm">
                 By {{blog.user?.firstName}}

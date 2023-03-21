@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { BlogHomeComponent } from './blog-home/blog-home.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
+import { BlogCreateComponent } from './blog-create/blog-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,10 +15,12 @@ import { BlogDetailComponent } from './blog-detail/blog-detail.component';
     ProfileComponent,
     BlogHomeComponent,
     BlogDetailComponent,
+    BlogCreateComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
   ],
   exports: [
     HeaderComponent
