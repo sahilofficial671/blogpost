@@ -1,8 +1,11 @@
 # Blogpost
+![Vercel](https://img.shields.io/github/deployments/sahilofficial671/blogpost/production?label=vercel&logo=vercel)
 
 This is a blogpost project - You can view, create & manage your blogs.
 
-## Deployed At: https://blogpost.webiggle.com/
+## Deployment
+#### Deployed On: Vercel
+#### Deployed At: https://blogpost.webiggle.com/
 
 ## Build with
 - Angular v15
