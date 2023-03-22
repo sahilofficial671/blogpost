@@ -2,6 +2,8 @@
 
 This is a blogpost project - You can view, create & manage your blogs.
 
+## Deployed At: https://blogpost.webiggle.com/
+
 ## Build with
 - Angular v15
 - Google Login
