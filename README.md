@@ -1,7 +1,7 @@
 # Blogpost
 ![Vercel](https://img.shields.io/github/deployments/sahilofficial671/blogpost/production?label=vercel&logo=vercel)
 
-This is a blogpost project - You can view, create & manage your blogs.
+This is a blogpost front end project - You can view, create & manage your blogs. For backend application you can visit - https://github.com/sahilofficial671/blogpost-backend
 
 ## Deployment
 #### Deployed On: Vercel
