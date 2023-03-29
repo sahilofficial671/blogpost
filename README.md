@@ -12,6 +12,7 @@ This is a blogpost front end project - You can view, create & manage your blogs.
 - Google Login
 - AlpineJS
 - TailwindCSS v3
+- Heroicons
 
 You can login with google and then "Create Blogs" from your profile view.
 
