@@ -46,8 +46,4 @@ export class LoginComponent {
       }
     });
   }
-
-  login(): void {
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  }
 }
