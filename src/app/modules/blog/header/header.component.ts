@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/core/models/user.model';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-blog-header',
@@ -18,7 +19,8 @@ export class HeaderComponent {
 
   constructor(
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private socialAuthService: SocialAuthService,
   ){
 
     // Refresh Logged In & User States
@@ -43,6 +45,7 @@ export class HeaderComponent {
 
   logout(): any {
     this.authService.logout();
+    this.socialAuthService.signOut();
     this.router.navigate(['/login']);
   }
 }

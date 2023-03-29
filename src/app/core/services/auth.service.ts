@@ -69,8 +69,8 @@ export class AuthService {
   }
 
   logout(): Boolean{
-    localStorage.setItem(this.userKey, "");
-    localStorage.setItem(this.tokenKey, "");
+    localStorage.removeItem(this.userKey);
+    localStorage.removeItem(this.tokenKey);
     this.loginState.next(false);
     this.userState.next(null);
     return true;
